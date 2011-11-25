@@ -1,12 +1,21 @@
 #!/bin/sh
 # Taken from : https://github.com/croaky/dotfiles/blob/master/install.sh
 
-# Install oh-my-zsh
-wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+# Install oh-my-zsh, if needed
+if [ -d ~/.oh-my-zsh ]
+then
+  echo "\033[0;34mOh My Zsh already installed.\033[0m"
+else
+  wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+fi
 
 # Install oh-my-zsh files (.oh-my-zsh should be a symlink)
-cp -f oh-my-zsh/themes/gravis.zsh-theme $HOME/.oh-my-zsh/themes
-cp -rf oh-my-zsh/custom/* $HOME/.oh-my-zsh/custom/
+if [ -d ~/.oh-my-zsh ]
+  echo "\033[0;34mInstalling oh-my-zsh files.\033[0m"
+  cp -f oh-my-zsh/themes/gravis.zsh-theme $HOME/.oh-my-zsh/themes
+  cp -rf oh-my-zsh/custom/* $HOME/.oh-my-zsh/custom/
+  echo "\n\033[0;32mDone installing files.\033[0m"
+fi
 
 cutstring="DO NOT EDIT BELOW THIS LINE"
 
