@@ -11,6 +11,7 @@ fi
 
 # Install oh-my-zsh files (.oh-my-zsh should be a symlink)
 if [ -d ~/.oh-my-zsh ]
+then
   echo "\033[0;34mInstalling oh-my-zsh files.\033[0m"
   cp -f oh-my-zsh/themes/gravis.zsh-theme $HOME/.oh-my-zsh/themes
   cp -rf oh-my-zsh/custom/* $HOME/.oh-my-zsh/custom/
