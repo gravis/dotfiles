@@ -1,0 +1,25 @@
+[alias]
+  ci = commit
+  st = status
+  co = checkout
+  br = branch
+  df = diff
+  lg = log -p
+  log-graph = log --graph --all --decorate
+  last = log --oneline -n 1
+[ignore]
+  tuneup
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  grep = auto
+[user]
+        name = Philippe Lafoucrière
+        email = philippe.lafoucriere@gmail.com
+[push]
+        default = current
+[core]
+        excludesfile = ~/.gitignore
+[branch]
+        autosetuprebase = always
