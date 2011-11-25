@@ -4,6 +4,10 @@
 # Install oh-my-zsh
 wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 
+# Install oh-my-zsh files (.oh-my-zsh should be a symlink)
+cp -f oh-my-zsh/themes/gravis.zsh-theme $HOME/.oh-my-zsh/themes
+cp -rf oh-my-zsh/custom/* $HOME/.oh-my-zsh/custom/
+
 cutstring="DO NOT EDIT BELOW THIS LINE"
 
 for name in *; do
