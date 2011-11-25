@@ -12,9 +12,9 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 git_custom_status() {
   local cb=$(current_branch)
   if [ -n "$cb" ]; then
-    echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+    echo "$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
   fi
 }
 
-PROMPT='$(git_custom_status)%{$fg[cyan]%}[%m:%~% ]%{$reset_color%}%B$%b '
+PROMPT='%{$fg[cyan]%}[%m:%~% ]$(git_custom_status)%{$reset_color%}%B$%b '
 RPROMPT=$RPS1' [%*]'
