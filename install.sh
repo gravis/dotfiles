@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 # Taken from : https://github.com/croaky/dotfiles/blob/master/install.sh
 
 # Install oh-my-zsh, if needed
