@@ -125,3 +125,4 @@ call pathogen#infect()
 " Bundle: tpope/vim-markdown
 " Bundle: mattn/gist-vim
 " Bundle: othree/html5.vim
+" Bundle: tpope/vim-bundler
