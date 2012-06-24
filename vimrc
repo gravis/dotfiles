@@ -119,10 +119,11 @@ call pathogen#infect()
 " Bundle: tpope/vim-haml
 " Bundle: tpope/vim-cucumber
 " Bundle: kchmck/vim-coffee-script
-" Bundle: tsaleh/vim-tcomment
+" Bundle: tComment
 " Bundle: tpope/vim-fugitive
 " Bundle: rodjek/vim-puppet
 " Bundle: tpope/vim-markdown
 " Bundle: mattn/gist-vim
 " Bundle: othree/html5.vim
 " Bundle: tpope/vim-bundler
+" Bundle: nono/vim-handlebars
