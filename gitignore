@@ -4,3 +4,4 @@ build/**/*
 *.app
 *.swp
 .powrc
+tags
