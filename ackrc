@@ -1,2 +1,2 @@
---type-add=ruby=.haml,.rake,.rsel,.sass,.feature
+--type-add=ruby=.haml,.rake,.rsel,.sass,.feature,.scss
 --ignore-dir=tmp
