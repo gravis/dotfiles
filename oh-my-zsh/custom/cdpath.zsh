@@ -1,2 +1,4 @@
 # autocd in these paths
-cdpath=($HOME/dev/*)
+if [ -d $HOME/dev/ ]; then
+  cdpath=($HOME/dev/*)
+fi
