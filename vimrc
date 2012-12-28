@@ -1,5 +1,4 @@
 set tabstop=2
-set nu
 set shiftwidth=2
 set expandtab
 set autoindent
@@ -75,7 +74,6 @@ set grepformat=%f:%l:%m
 " :setlocal spell spelllang=fr
 
 autocmd BufRead,BufNewFile *.ru,*.task set filetype=ruby
-set paste  
 
 " Remove trailing spaces with F5
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
@@ -110,6 +108,28 @@ let g:gist_clip_command = 'pbcopy'
 " Consider scss files as css files
 au BufRead,BufNewFile *.scss set filetype=css
 
+if has("statusline") && !&cp
+  set laststatus=2  " always show the status bar
+
+  " Start the status line
+  set statusline=%f\ %m\ %r
+
+  " Add fugitive
+  set statusline+=%{fugitive#statusline()}
+
+  " Finish the statusline
+  set statusline+=Line:%l/%L[%p%%]
+  set statusline+=Col:%v
+  set statusline+=Buf:#%n
+  set statusline+=[%b][0x%B]
+endif
+
+" set compiler for ruby
+autocmd FileType ruby compiler ruby
+
+" Close html tags with Leader+/
+imap <silent> <C-c> </<C-X><C-O><C-X>
+
 " from https://github.com/kchmck/vim-coffee-script
 call pathogen#infect()
 " Bundle: Vimball
@@ -118,12 +138,13 @@ call pathogen#infect()
 " Bundle: tpope/vim-endwise
 " Bundle: tpope/vim-haml
 " Bundle: tpope/vim-cucumber
+" Bundle: tpope/vim-bundler
 " Bundle: kchmck/vim-coffee-script
-" Bundle: tComment
 " Bundle: tpope/vim-fugitive
 " Bundle: rodjek/vim-puppet
 " Bundle: tpope/vim-markdown
 " Bundle: mattn/gist-vim
-" Bundle: othree/html5.vim
-" Bundle: tpope/vim-bundler
-" Bundle: nono/vim-handlebars
+" Bundle: mklabs/vim-backbone
+" Bundle: tComment
+" Bundle: groenewege/vim-less
+" Bundle: tpope/vim-ragtag
