@@ -15,11 +15,11 @@
   branch = auto
   grep = auto
 [user]
-        name = Philippe Lafoucrière
-        email = philippe.lafoucriere@gmail.com
+  name = Philippe Lafoucrière
+  email = philippe.lafoucriere@gmail.com
 [push]
-        default = current
+  default = current
 [core]
-        excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 [branch]
-        autosetuprebase = always
+  autosetuprebase = always
