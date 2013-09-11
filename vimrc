@@ -1,7 +1,37 @@
+" vundle config (https://github.com/gmarik/vundle)
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" My bundles
+Bundle 'Vimball'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-bundler'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-fugitive'
+Bundle 'rodjek/vim-puppet'
+Bundle 'tpope/vim-markdown'
+Bundle 'mklabs/vim-backbone'
+Bundle 'tComment'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'vim-json-bundle'
+Bundle 'Blackrush/vim-gocode'
+Bundle 'scrooloose/nerdtree'
+Bundle 'ervandew/supertab'
+Bundle 'Townk/vim-autoclose'
+Bundle 'scrooloose/syntastic'
+
 set tabstop=2
 set shiftwidth=2
 set expandtab
 set autoindent
+filetype plugin on
 
 " remap leader to a french key:
 let mapleader = ","
@@ -78,16 +108,6 @@ autocmd BufRead,BufNewFile *.ru,*.task set filetype=ruby
 " Remove trailing spaces with F5
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 
-" Change first word of line
-map <silent> <C-h> ^cw
-
-" Duplicate selection bellow
-vmap D y'>p
-
-" Edit routes
-command! Rroutes :Redit config/routes.rb
-command! RTroutes :RTedit config/routes.rb
-
 " Add Rfactory command with dynamic search
 autocmd User Rails silent! Rnavcommand factory test/factories -suffix=.rb
 autocmd User Rails silent! Rnavcommand feature features -suffix=.feature
@@ -99,10 +119,6 @@ map <C-h> <C-]>
 
 " ColorScheme : IR BLACK
 colorscheme ir_black
-
-" Vim Gist
-let g:gist_detect_filetype = 1
-let g:gist_clip_command = 'pbcopy'
 
 
 " Consider scss files as css files
@@ -119,32 +135,34 @@ if has("statusline") && !&cp
 
   " Finish the statusline
   set statusline+=Line:%l/%L[%p%%]
-  set statusline+=Col:%v
-  set statusline+=Buf:#%n
-  set statusline+=[%b][0x%B]
+  set statusline+=\ Col:%v
+  set statusline+=\ [%b][0x%B]
 endif
 
+" RUBY
+" =========================================
 " set compiler for ruby
 autocmd FileType ruby compiler ruby
+
+" GO
+" =========================================
+" Config for GO files
+autocmd FileType go  set makeprg=go\ build\ ./...| set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab| set nolist
+" Run go fmt on save
+au FileType go au BufWritePre <buffer> Fmt
+" Update ctags on save
+au BufWritePost *.go silent! !/usr/local/bin/ctags -R &
+" Build project
+nmap <F3> :NERDTreeToggle<CR>
+nmap <F6> :make<CR>:copen<CR>
+" SuperTab knows when to trigger gocode or simple text completion, based on
+" current context
+let g:SuperTabDefaultCompletionType = "context"
+
+" Markdown
+" =========================================
+au BufRead,BufNewFile *.md set filetype=markdown
 
 " Close html tags with Leader+/
 imap <silent> <C-c> </<C-X><C-O><C-X>
 
-" from https://github.com/kchmck/vim-coffee-script
-call pathogen#infect()
-" Bundle: Vimball
-" Bundle: jQuery
-" Bundle: tpope/vim-rails
-" Bundle: tpope/vim-endwise
-" Bundle: tpope/vim-haml
-" Bundle: tpope/vim-cucumber
-" Bundle: tpope/vim-bundler
-" Bundle: kchmck/vim-coffee-script
-" Bundle: tpope/vim-fugitive
-" Bundle: rodjek/vim-puppet
-" Bundle: tpope/vim-markdown
-" Bundle: mattn/gist-vim
-" Bundle: mklabs/vim-backbone
-" Bundle: tComment
-" Bundle: groenewege/vim-less
-" Bundle: tpope/vim-ragtag
