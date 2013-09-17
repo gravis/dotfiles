@@ -54,3 +54,6 @@ done
 
 # Install vundle
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+echo "Installing vim bundles:"
+vim +BundleInstall +quit +quit
+echo "done."
