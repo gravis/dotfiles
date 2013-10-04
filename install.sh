@@ -57,3 +57,6 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 echo "Installing vim bundles:"
 vim +BundleInstall +quit +quit
 echo "done."
+
+# copy vim color schemes
+cp -r vim/colors/ ~/.vim/
