@@ -1,5 +1,5 @@
 [alias]
-  ci = commit
+  ci = commit -v
   st = status
   co = checkout
   br = branch
