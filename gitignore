@@ -3,6 +3,6 @@ build/**/*
 .DS_Store
 *.app
 *.swp
-.powrc
 tags
 .vagrant
+gin-bin
